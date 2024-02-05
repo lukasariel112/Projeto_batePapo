@@ -2,7 +2,7 @@
 
 ---------------------
 
-# Apresentação do projeto 
+# 🪄Apresentação do projeto 
 
 - 💡Ideia 
 - 🌍Objetivo 
