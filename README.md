@@ -5,7 +5,7 @@
 🪄 -Apresentação Projeto
 
 💡- Ideia
-  - Objetivo
+   - Objetivo
 💻- Desenvolvimento
 📚- Evidencias
 🔧- Como rodar aplicação
