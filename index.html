@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="./styles.css" type="text/css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <body class="hold-transition sidebar-mini">
+    <!-- Direct Chat -->
+    <h4 class="mt-4 mb-2" style="width: 350px; height: 50px; font-size: 500%; color: brown">Speakeasy</h4>
+
+
+    <div class="direct-chat-msg">
+
+      <div class="direct-chat-infos clearfix">
+        <style>
+          .direct-chat-infos clearfix {
+            width: 1000px;
+            /* Defina a largura desejada */
+            height: 200px;
+            /* Defina a altura desejada */
+          }
+        </style>
+        <span class="direct-chat-name float-left">Chat</span>
+        <div class="container">
+
+          <div class="clock"></div>
+        </div>
+
+      </div>
+
+
+
+
+
+
+      <br>
+
+
+
+      <div>
+        <form id="form">
+          <div id="messages"></div>
+          <input id="input" type="text" style="width: 350px;  color: brown;">
+        </form>
+
+    
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+          const socket = io({
+            auth: {
+              serverOffset: 0
+            }
+          });
+
+
+
+          const form = document.getElementById('form');
+          const input = document.getElementById('input');
+          const messages = document.getElementById('messages');
+
+
+          form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (input.value) {
+              socket.emit('chat message', input.value);
+              input.value = '';
+            }
+          });
+
+
+          async function carregarMensagens(){
+            const response = await fetch('http://localhost:3000/messages');
+            const mensagens = await response.json();
+            
+            console.log(mensagens)
+            for (i = 0; i < mensagens.length -1; i++){
+              console.log(messages)
+              console.log(mensagens[i]);
+              const item = document.createElement('li');
+              item.textContent = mensagens[i].texto;
+              messages.appendChild(item);
+              window.scrollTo(0, document.body.scrollHeight);              
+            }
+
+          }
+
+          carregarMensagens();
+
+          /*
+    
+    axios.post('http://localhost:3000/messages/1', {
+        title: 'conversa',
+        body: 'mensagem',
+        userId: 1
+    })
+    .then(response => {
+        console.log('Resposta:', response.data);
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+    });
+    
+    const array = [1, 2, 3, 4, 5];
+    
+    array.forEach(function(element) {
+      console.log(element);
+    });
+    
+    */
+          /*
+     
+           pegar o objeto e fazer o foreach
+     
+           e criar as li igual o codigo abaixo
+              const item = document.createElement('li');
+               item.textContent = msg;
+               messages.appendChild(item);
+     
+     
+     
+           */
+
+
+          socket.on('chat message', (msg, serverOffset) => {
+            const item = document.createElement('li');
+            item.textContent = msg;
+            messages.appendChild(item);
+            window.scrollTo(0, document.body.scrollHeight);
+            socket.auth.serverOffset = serverOffset;
+          });
+
+
+
+
+
+
+          const getHours = () => {
+            const clock = document.getElementsByClassName('clock')[0]
+            const date = new Date()
+            const hours = date.getHours()
+            const minutes = date.getMinutes()
+            const seconds = date.getSeconds()
+            const hour = hours < 10 ? `0${hours}` : hours
+            const minute = minutes < 10 ? `0${minutes}` : minutes
+            const second = seconds < 10 ? `0${seconds}` : seconds
+            clock.innerHTML = `${hour}:${minute}:${second}`
+          }
+
+          setInterval(() => {
+            getHours()
+          }, 1000)
+        </script>
+  </body>
+
+</html>
