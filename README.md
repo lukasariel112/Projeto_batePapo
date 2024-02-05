@@ -2,7 +2,7 @@
 
 ---------------------
 
-🪄 -Apresentação Projeto
+🪄 # Apresentação Projeto
 
 - 💡Ideia 
 - 🌍Objetivo 
@@ -13,7 +13,7 @@
 --------------
 
 💡Ideia
- # Construindo um BI
+
 
 Back-end
 
