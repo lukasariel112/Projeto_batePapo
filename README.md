@@ -4,8 +4,9 @@
 
 🪄 -Apresentação Projeto
 
-- Ideia
-- Desenvolvimento
-- Evidencias
+💡- Ideia
+💻- Desenvolvimento
+📚- Evidencias
+🔧- Como rodar aplicação
 
 --------------
