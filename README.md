@@ -4,11 +4,11 @@
 
 🪄 -Apresentação Projeto
 
-💡- Ideia
-   - Objetivo
-💻- Desenvolvimento
-📚- Evidencias
-🔧- Como rodar aplicação
+- Ideia
+- Objetivo
+- Desenvolvimento
+- Evidencias
+- Como rodar aplicação
 
 --------------
 
