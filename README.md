@@ -12,6 +12,9 @@
 
 --------------
 
+💡**Ideia **
+
+
 Back-end
 
 Front-end
